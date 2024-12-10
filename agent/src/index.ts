@@ -42,6 +42,7 @@ import { createNodePlugin } from "@ai16z/plugin-node";
 import { solanaPlugin } from "@ai16z/plugin-solana";
 import { aptosPlugin, TransferAptosToken } from "@ai16z/plugin-aptos";
 import { teePlugin } from "@ai16z/plugin-tee";
+import { twitterPlugin } from "@ai16z/plugin-twitter";
 import Database from "better-sqlite3";
 import fs from "fs";
 import path from "path";
@@ -409,6 +410,7 @@ export function createAgent(
             getSecret(character, "WALLET_SECRET_SALT") ? teePlugin : null,
             getSecret(character, "ALCHEMY_API_KEY") ? goatPlugin : null,
             getSecret(character, "APTOS_PRIVATE_KEY") ? aptosPlugin : null,
+            getSecret(character, "TWITTER_EMAIL") ? twitterPlugin : null,
         ].filter(Boolean),
         providers: [],
         actions: [],
